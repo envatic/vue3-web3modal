@@ -7,7 +7,7 @@ import {  reactive, toRefs } from "vue";
 export function createWeb3({
     infuraKey, 
     providerOptions,
-    theme=reactive({}),
+    theme = reactive({}),
     global= false
 }){
     const plugin = {

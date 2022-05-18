@@ -29,8 +29,7 @@ export const addTransaction = ({
     onSuccess,
     onError,
     summary,
-    approval,
-    type,
+    approval
 }) => {
     if (transactions.value[chain_id.value]?.[hash]) {
         throw Error("Attempted to add existing transaction.");
@@ -41,7 +40,6 @@ export const addTransaction = ({
         onSuccess,
         onError,
         hash,
-        type: type ?? "tx",
         summary,
         approval,
         from: account,
@@ -80,8 +78,8 @@ export const finalizeTransaction = ({ hash, receipt }) => {
     if (tx.onSuccess && tx.onSuccess instanceof Function) tx.onSuccess(receipt);
     txBus.emit(tx.hash,{
         ...tx,
-        error:false,
-        success:true
+        receipt,
+        error:null,
     })
 };
 
@@ -89,10 +87,11 @@ export const failTransaction = ({ hash, error }) => {
     console.log(`Failing  tx ${hash}`);
     const tx = transactions.value[chain_id.value]?.[hash];
     if (!tx) return;
-    if (tx.onError && tx.onError instanceof Function) return tx.onError(error);
+    if (tx.onError && tx.onError instanceof Function) tx.onError(error);
     txBus.emit(tx.hash, {
+        ...tx,
         error,
-        success: false
+        receipt: null
     })
 };
 

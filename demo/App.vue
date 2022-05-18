@@ -1,12 +1,12 @@
 <script>
-	import { Web3Manager, useWeb3ModalToggle, useActiveWeb3Vue, toggleDark } from "@/index";
+	import { Web3Manager,  useWeb3ModalToggle, useActiveWeb3Vue, toggleDark } from "@/index";
 		export default {
 		components: {
 			Web3Manager,
 		},
 		setup() {
-			const { account } = useActiveWeb3Vue();
-			const { open} = useWeb3ModalToggle();
+			const {account} = useActiveWeb3Vue();
+			const { open, close, isOpen, toggle} = useWeb3ModalToggle();
 			return {
 				showWeb3Modal: open,
                 account,

@@ -66,6 +66,8 @@ export const blockUpdater = () => {
 	if (isActive.value) return; // run only once
 	isActive.value = true;
     const { infuraWss: infura } = useInfura();
+    // infuraWss is a web3 instance connected to infura websockets
+    
 	const debounceUpdateBlockNumber = useDebounceFn(updateBlock, 100);
 	const blockNumberCallback = (block) => {
 		const blockNum = parseInt(block.number);
