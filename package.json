@@ -3,10 +3,10 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"serve": " vue-cli-service serve --mode=development --outputDir demo/dist demo/main.js",
+		"serve": " vue-cli-service serve --mode=development  demo/main.js",
 		"build": "vue-cli-service build --mode=development --target lib src/index.js",
 		"lint": "vue-cli-service lint",
-		"build:demo": "cross-env NODE_ENV=production vue-cli-service build --outputDir demo/dist demo/main.js",
+		"build:demo": "cross-env NODE_ENV=production vue-cli-service build --dest demo/dist demo/main.js",
 		"servet": "cross-env NODE_ENV=development  vue-cli-service serve --outputDir demo/dist demo/test.js"
 	},
 	"dependencies": {

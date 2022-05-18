@@ -182,7 +182,8 @@
 					>MIT Licence</a>
 					<a
 						href="https://twitter.com/zobitchat"
-						target="_blink"
+						target="_blank"
+                        rel=“noreferrer”
 						class="text-gray-500 transition-colors duration-300 dark:text-gray-300 hover:text-primary dark:hover:text-primary"
 					><svg
 							viewBox="0 0 24 24"
@@ -194,7 +195,8 @@
 						</svg></a>
 					<a
 						href="https://github.com/zobitnet/vue3-web3-modal/"
-						target="_blink"
+						target="_blank"
+                        rel=“noreferrer”
 						class="text-gray-500 transition-colors duration-300 dark:text-gray-300 hover:text-primary dark:hover:text-primary"
 					><svg
 							viewBox="0 0 30 30"

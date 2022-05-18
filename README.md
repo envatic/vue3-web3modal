@@ -4,7 +4,7 @@
 
 
 # demo
-<img width="500" src="./modal.png">
+<img width="350" src="./modal.png">
 
 View [Demo](https://vue3-web3modal.netlify.app/)
 The demo works, Connect your wallet to see it in action.
