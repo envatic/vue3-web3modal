@@ -6,7 +6,7 @@
 		},
 		setup() {
 			const {account} = useActiveWeb3Vue();
-			const { open, close, isOpen, toggle} = useWeb3ModalToggle();
+			const { open } = useWeb3ModalToggle();
 			return {
 				showWeb3Modal: open,
                 account,
