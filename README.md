@@ -4,6 +4,7 @@
 
 
 # demo
+<img width="500" src="./modal.png">
 
 View [Demo](https://vue3-web3modal.netlify.app/)
 The demo works, Connect your wallet to see it in action.
@@ -41,44 +42,48 @@ For all supported providers, see [origninal web3modal providers](https://github.
 # Create a providerOptions file:
 The  providers options file format is the same as  [ web3modal providers](https://github.com/Web3Modal/web3modal#provider-options)
 ```js
-    // ./providerOptions.js
-    import Authereum from "authereum";
-    import { Venly } from "@venly/web3-provider";
-    import Portis from "@portis/web3";
-    import { Bitski } from "bitski";
-    export const providerOptions = {
-        walletconnect: {
-            package: WalletConnectProvider,
-            options: {
-                infuraId: process.env.VUE_APP_INFURA_KEY,
-            },
-        },
-        venly: {
-            package: Venly, // required
-            options: {
-                clientId: process.env.VUE_APP_VENLY_CLIENT_ID // required
-            }
-        },
-        portis: {
-            package: Portis, // required
-            options: {
-                id: process.env.VUE_APP_PORTIS_ID, // required
-            },
-        },
-        bitski: {
-        package: Bitski,
+// ./providerOptions.js
+import Authereum from "authereum";
+import { Venly } from "@venly/web3-provider";
+import Portis from "@portis/web3";
+import { Bitski } from "bitski";
+export const providerOptions = {
+    walletconnect: {
+        package: WalletConnectProvider,
         options: {
-            clientId: process.env.VUE_APP_BITSKI_CLIENT_ID,
-            callbackUrl: window.location.href + "bitski-callback.html",
+            infuraId: process.env.VUE_APP_INFURA_KEY,
         },
     },
-}
+    venly: {
+        package: Venly, // required
+        options: {
+            clientId: process.env.VUE_APP_VENLY_CLIENT_ID // required
+        }
+    },
+    portis: {
+        package: Portis, // required
+        options: {
+            id: process.env.VUE_APP_PORTIS_ID, // required
+        },
+    },
+    bitski: {
+    package: Bitski,
+    options: {
+        clientId: process.env.VUE_APP_BITSKI_CLIENT_ID,
+        callbackUrl: window.location.href + "bitski-callback.html",
+    },
+},
+
 ```
 # setup vue3
 
 > Requires [vue-i18n](http://vue-i18n.intlify.dev/) to be in your app
-some Providers dont support events so all transactions are confirmed using infura ;
+
+Some Providers dont support events so all transactions are confirmed using infura ;
+
 > infuraKey app key is required
+
+
 ````js
 // in your main.js
 const infuraKey = process.env.VUE_APP_INFURA_KEY;
@@ -105,39 +110,39 @@ app.mount('#app');
 # Using the Web3Manager
 > automatically registers the modal!
 
-<img src="./menu.png">
+<img width="500" src="./menu.png">
 
 ```js
 // import Web3Manager plugin and active web3 
-    <script>
-        import { Web3Manager, useActiveWeb3Vue} from "vue3-web3modal";
-		export default {
-		components: {
-			Web3Manager,
-		},
-		setup() {
-            // all these variable need .value
-			const { 
-                web3, //ref
-                account, //ref
-                accountEns, //asyncComputed
-                etherBalance, //asyncComputed
-                chainId,//ref
-                providerInfo,//computed
-                isValidNetwork,//computed
-                active,//ref
-                error, //ref
-             } = useActiveWeb3Vue();
-             console.log(etherBalance.value)
-			return {
-                account
-			};
-		},
-	};
-   </script>
-   <template>
-    <Web3Manager />
-   </template>
+<script>
+import { Web3Manager, useActiveWeb3Vue} from "vue3-web3modal";
+export default {
+	components: {
+		Web3Manager,
+	},
+	setup() {
+        // all these variable need .value
+		const { 
+            web3, //ref
+            account, //ref
+            accountEns, //asyncComputed
+            etherBalance, //asyncComputed
+            chainId,//ref
+            providerInfo,//computed
+            isValidNetwork,//computed
+            active,//ref
+            error, //ref
+        } = useActiveWeb3Vue();
+        console.log(etherBalance.value)
+		return {
+            account
+		};
+	},
+};
+</script>
+<template>
+<Web3Manager />
+</template>
 
 ```
 The Web3Manager has a slot for user dropdown 
@@ -161,44 +166,44 @@ const web3vue = createWeb3({
     //global:true //remove this
 })
 ````
-In Onr of your Components eg App.vue
+In One of your Components eg App.vue
 
 ```vue
 // import web menu plugin and activeweb3 
-    <script>
-        import { Web3Modal, useActiveWeb3Vue, useWeb3ModalToggle} from "vue3-web3modal";
-		export default {
-		components: {
-			Web3Modal,
-		},
-		setup() {
-            // all these variable need .value
-			const { 
-                web3, //ref
-                account, //ref
-                accountEns, //asyncComputed
-                etherBalance, //asyncComputed
-                ...
-             } = useActiveWeb3Vue();
-            console.log(etherBalance.value)
-            const { open, close, isOpen, toggle} = useWeb3ModalToggle();
-			return {
-                account,
-                toggle
-			};
-		},
-	};
-   </script>
-   <template>
-    <Web3Modal />
-    <a href="#" @click="toggle()">Connect Your Wallet</a>
-   </template>
+<script>
+    import { Web3Modal, useActiveWeb3Vue, useWeb3ModalToggle} from "vue3-web3modal";
+	export default {
+	components: {
+		Web3Modal,
+	},
+	setup() {
+        // all these variable need .value
+        const { 
+            web3, //ref
+            account, //ref
+            accountEns, //asyncComputed
+            etherBalance, //asyncComputed
+            ...
+         } = useActiveWeb3Vue();
+        console.log(etherBalance.value)
+        const { open, close, isOpen, toggle} = useWeb3ModalToggle();
+		return {
+            account,
+            toggle
+		};
+	},
+};
+</script>
+<template>
+<Web3Modal />
+<a href="#" @click="toggle()">Connect Your Wallet</a>
+</template>
 ```
 
 # Translations.
 > Important!!!
 You must initialize and enable [vue-i18n](http://vue-i18n.intlify.dev/)
-The Plugin uses vuei18n for transaltions .
+The Plugin uses vuei18n for translations .
 ```js
 {{$t('Connect Modal')}}
 
@@ -309,7 +314,7 @@ setup(){
 
 ```
 # web3 
-web3 is null  `ref` before initialization
+`web3` is null  `ref` before initialization
 after its populated with the connected web3 account
 ```js
 import { useActiveWeb3Vue } from "vue3-web3modal";
@@ -327,9 +332,9 @@ setup(){
 ```
 
 # account ;
-account is a null  `ref` before initialization
+`account` is a `null`  `ref` before initialization
 
-after use connected, is the users address;
+after user connected, is the users address;
 
 It will be modified to new address if user changes address in wallet eg metamask
 ```js
@@ -342,9 +347,9 @@ setup(){
 }
 ```
 #  accountEns ;
-accountEns is a null  `ref` before initialization
+`accountEns` is a null  `ref` before initialization
 after user connected, is the users ensname if user registed it;
-is computed ref and will be recomputed if user changes network or address
+is `computed ref` and will be recomputed if user changes network or address
 ```js
 import { useActiveWeb3Vue } from "vue3-web3modal";
 /// in the component setup
@@ -356,9 +361,9 @@ setup(){
 ```
 
 # etherBalance;
-etherBalance is a null computed  `ref` before initialization;
+`etherBalance` is a `null` computed  `ref` before initialization;
 After user connected, is the users etherbalance in ETH;
-Is computed ref and will be recomputed if user changes network or address or spends or receives eth;
+Is `computed ref` and will be recomputed if user changes network or address or spends or receives eth;
 ```js
 import { useActiveWeb3Vue } from "vue3-web3modal";
 /// in the component setup
@@ -370,9 +375,9 @@ setup(){
 ```
 
 # chainId
-chainId is a null   `ref` before initialization;
+`chainId` is a null   `ref` before initialization;
 After user connected, is the users network chainId ;
-Is a ref and will be adjusted automatically if user changes network;
+Is a `ref` and will be adjusted automatically if user changes network;
 ```js
 import { useActiveWeb3Vue } from "vue3-web3modal";
 /// in the component setup
@@ -384,8 +389,9 @@ setup(){
 ```
 
 # providerInfo, isValidNetwork
-providerInfo is the information of connected provider eg metamask , coinbase etc
-isValidNetwork is a boolean ref, determines if user is connected to a supported network;
+`providerInfo` is the information of connected provider eg metamask , coinbase etc:
+
+`isValidNetwork` is a `boolean` `ref`, determines if user is connected to a supported network;
 the follwoing networks are supported
 ```
 MAINNET: 1,
@@ -409,22 +415,23 @@ import { useActiveWeb3Vue } from "vue3-web3modal";
 /// in the component setup
 setup(){
     const {  isValidNetwork,providerInfo   } = useActiveWeb3Vue();
-    if(!isValidNetwork.value){
+    if(isValidNetwork.value){
         console(providerInfo.value)
-        {
+        /*{
             name: metamask,
             .....
-        }
+        }*/
     }
     // true
 }
 ```
 
 
-# active, error;
+# active, error
 
-`active` is a boolean ref, determines if user the user has connected his wallet and everything is set;
-`error` is a ref containing and errors accounted,
+`active` is a `boolean` ref, determines if user the user has connected his wallet and everything is set;
+
+`error` is a `ref` containing and errors accounted,
 you can use it to determine everythis is going ok
 ```js
 import { useActiveWeb3Vue } from "vue3-web3modal";
@@ -448,7 +455,8 @@ setup(){
 ```
 
 # Transactions;
-Some providers dont support events making it tough to confirm transactions
+Some providers dont support events, making it tough to confirm transactions.
+
 so to unify transactions confirmation, a method exists to confirm transactions via Infura
 
 ```js
@@ -471,7 +479,7 @@ setup(){
     })
     // or listen to tx events
     txBus.on(hash, ({receipt, error, hash, summary})=>{
-        // error occured if error ws set;
+        // error occured if error was set;
         if(error) return showError(error);
         console.log(receipt.hash)
     })
@@ -480,8 +488,10 @@ setup(){
 
 
 # events;
-Again Some providers dont support events listning 
-you would be wise to use infura;
+Again Some providers dont support events listening;
+
+You would be wise to use infura;
+
 > Infura doesnt support binance chain 
 
 ```js
@@ -495,18 +505,17 @@ setup(){
         .subscribe("newBlockHeaders")
         .on("data", (block) => console.log(block));
     // contracts events
-    const to = '0x7f0374480b9Ca09144F6cBd16774FDf1da1ae528';
     const contract = new infuraWss.value.eth.Contract(your_toke_ABI, token_address);
     contract.events.Transfer().on('data', (event)=> console.log(event))
 }
 ```
 
 # Theming
-By default, Uniswap colors are preserved
+By default, Uniswap colors are preserved,
 But we all have our themes
-Adjust the colours below  to suit your
-I just extracted this theme in random, I dont what color goes where
-so experimemt and share
+Adjust the colours below  to suit your needs.
+
+> I just extracted this theme in random, I dont what color goes where so experimemt and share
 
 ```js
 // in ./theme.js
