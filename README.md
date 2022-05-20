@@ -17,7 +17,7 @@ The <a href="https://vue3-web3modal.netlify.app/" rel="noopener" target="_blank"
 
 # Copied from uniswap;
 
-This Modal is copied from this <a href="https://github.com/Uniswap/interface" rel="noopener" target="_blank">uniswap interface</a>,  as seen in the [Uniswap exchange.](https://app.uniswap.org/.)
+This Modal is copied from this <a href="https://github.com/Uniswap/interface" rel="noopener" target="_blank">Uniswap interface</a>,  as seen in the [Uniswap exchange.](https://app.uniswap.org/.)
 
 # Installation
 

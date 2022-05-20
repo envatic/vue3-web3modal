@@ -14,4 +14,4 @@ export {
 export {
     useEther,
 } from './Web3Modal/constants'
-export { toggleDark, setDarkMode, darkMode} from './Web3Modal/theme/index'
+export { toggleDark, setDarkMode, darkMode, darkMode as isDark } from './Web3Modal/theme/index'
