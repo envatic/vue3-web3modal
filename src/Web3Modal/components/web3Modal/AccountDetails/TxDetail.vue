@@ -28,7 +28,7 @@
 
 <script>
 	import styled from "vue3-styled-components";
-	import { CheckCircleIcon, TriangleIcon } from "vue3-feather";
+	import { CheckCircleIcon, TriangleIcon } from "@/Web3Modal/assets/icons";
 	import ExternalLink from "@/Web3Modal/theme/ExternalLink";
 	import Loader from "@/Web3Modal/components/Loader";
 	import { RowFixed } from "@/Web3Modal/components/Row";

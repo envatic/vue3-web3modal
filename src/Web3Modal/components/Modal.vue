@@ -39,7 +39,7 @@
 <script>
 	import styled, { css } from "vue3-styled-components";
 	import { isMobile } from "mobile-device-detect";
-	import { transparentize } from "polished";
+	import transparentize from "polished/lib/color/transparentize";
 	import { spring } from "vue3-spring";
 	import { ref, computed, inject } from "vue";
 	import { useSwipe } from "@vueuse/core";

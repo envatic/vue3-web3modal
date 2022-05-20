@@ -4,7 +4,7 @@
 	import { SupportedChainId } from "../constants/chains";
 	import { useActiveWeb3Vue } from "../hooks";
 	import { computed } from "vue";
-	import { ArrowDownIcon as ArrowDownCircle } from "vue3-feather";
+	import { ArrowDownIcon as ArrowDownCircle } from "@/Web3Modal/assets/icons";
 	import styled from "vue3-styled-components";
 	import ExternalLink from "../theme/ExternalLink.vue";
 	import { useI18n } from "vue-i18n";

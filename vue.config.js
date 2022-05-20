@@ -1,13 +1,19 @@
 const { defineConfig } = require('@vue/cli-service')
-//const nodeExternals = require('webpack-node-externals');
+const nodeExternals = require('webpack-node-externals');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+    .BundleAnalyzerPlugin;
 const webpack = require('webpack');
 module.exports = defineConfig({
   outputDir:'dist',
   transpileDependencies: true,
   configureWebpack:{
       devtool: 'source-map',
-      //externals: [nodeExternals()],
+      externals: [nodeExternals()],
+      /*externals: {
+          web3: 'Web3'
+      },*/
       plugins: [
+          new BundleAnalyzerPlugin(),
           new webpack.ProvidePlugin({
               Buffer: ['buffer', 'Buffer'],
           }),

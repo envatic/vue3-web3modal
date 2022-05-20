@@ -5,7 +5,7 @@
 	import { CHAIN_INFO } from "@/Web3Modal/constants/chainInfo";
 	import { CHAIN_IDS_TO_NAMES, SupportedChainId } from "../constants/chains";
 	import { useActiveWeb3Vue } from "@/Web3Modal/hooks";
-	import { ChevronDownIcon as ChevronDown } from "vue3-feather";
+	import { ChevronDownIcon as ChevronDown } from "@/Web3Modal/assets/icons";
 	import styled from "vue3-styled-components";
 	import { MEDIA_WIDTHS } from "@/Web3Modal/theme";
 	import { switchToNetwork } from "@/Web3Modal/utils/switchToNetwork";
@@ -130,7 +130,8 @@
 				if (targetChain == chainId.value) return;
 				switchToNetwork({
 					provider: web3.value.currentProvider,
-					chainId: targetChain,
+					chainId:targetChain,
+					chainIdHex: web3.value.utils.numberToHex(targetChain),
 					INFURA_KEY: props.infuraKey,
 				})
 					.then(() => {

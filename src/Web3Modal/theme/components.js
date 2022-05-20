@@ -1,10 +1,10 @@
 import styled, {keyframes} from "vue3-styled-components";
-import {darken} from "polished";
+import darken from "polished/lib/color/darken";
 import {
 	XIcon as X,
 	ExternalLinkIcon as LinkIconFeather,
 	TrashIcon as Trash,
-} from "vue3-feather";
+} from "@/Web3Modal/assets/icons";
 export const ButtonText = styled.button`
 	outline: none;
 	border: none;

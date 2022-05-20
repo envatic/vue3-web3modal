@@ -10,6 +10,7 @@ export function createWeb3({
     theme = reactive({}),
     global= false
 }){
+    console.log(providerOptions);
     const plugin = {
         install(app){
             const mergedTheme = Object.assign(defaultTheme, toRefs(theme))

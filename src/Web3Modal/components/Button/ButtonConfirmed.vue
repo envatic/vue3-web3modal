@@ -6,7 +6,7 @@
 <script>
 
 import styled from 'vue3-styled-components'
-import { lighten} from 'polished'
+import lighten from 'polished/lib/color/lighten'
 import {ButtonPrimary, Base} from "../Button";
 const ButtonConfirmedStyle = styled(Base)`
   background-color: ${({ theme }) => lighten(0.5, theme.green1)};

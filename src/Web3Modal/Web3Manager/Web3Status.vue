@@ -1,7 +1,7 @@
 
 <script >
-	import { darken } from "polished";
-	import { ActivityIcon as Activity } from "vue3-feather";
+	import darken from "polished/lib/color/darken";
+	import { ActivityIcon as Activity } from "@/Web3Modal/assets/icons";
 	import styled, { css } from "vue3-styled-components";
 	import { useActiveWeb3Vue } from "../hooks";
 	import { useWeb3ModalToggle } from "../hooks/useModalsToggle";
@@ -139,11 +139,10 @@
 				return b.addedTime - a.addedTime;
 			}
 			const {
-				accountEns: ENSName,
 				account,
 				error,
 				active,
-				isValidNetwork,
+				isValidNetwork
 			} = useActiveWeb3Vue();
 			const sortedRecentTransactions = computed(() => {
 				const txs = Object.values(allTransactions?.value ?? {});
@@ -170,7 +169,6 @@
 				active,
 				error,
 				account,
-				ENSName,
 				isValidNetwork,
 				shortenAddress,
 				pending,
@@ -180,12 +178,12 @@
 	};
 </script>
 <template>
+       
 	<Web3StatusError v-if="!isValidNetwork">
 		<NetworkIcon />
 		<Text>{{$t('Wrong Network')}}</Text>
 	</Web3StatusError>
 	<template v-else>
-
 		<Web3StatusConnected
 			v-if="active && !!account"
 			id="web3-status-connected"
@@ -199,7 +197,7 @@
 				</Text>{{' '}}
 				<PendingLoader stroke="white" />
 			</RowBetween>
-			<Text v-else>{{ENSName || shortenAddress(account)}}</Text>
+			<Text v-else>{{shortenAddress(account)}}</Text>
 			<IconWrapper
 				v-if="!hasPendingTransactions && active"
 				:size="16"

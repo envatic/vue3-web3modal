@@ -1,5 +1,5 @@
 import styled from "vue3-styled-components";
-import {darken} from "polished";
+import darken from "polished/lib/color/darken";
 import {default as RebassButton} from "@/Web3Modal/Rebass/Button.vue";
 const Base = styled(RebassButton, {
 	padding: String,

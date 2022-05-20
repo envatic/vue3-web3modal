@@ -3,7 +3,6 @@ import arbitrumLogoUrl from "../assets/svg/arbitrum_logo.svg";
 import optimismLogoUrl from "../assets/svg/optimistic_ethereum.svg";
 import polygonMaticLogo from "../assets/svg/polygon-matic-logo.svg";
 import binanceLogo from "../assets/svg/binance-logo.svg";
-import ms from "ms.macro";
 import { SupportedChainId } from "./chains";
 export const NetworkType = Object.freeze({
     L1: Symbol("l1"),
@@ -58,7 +57,6 @@ export const CHAIN_INFO = {
     },
     [SupportedChainId.OPTIMISM]: {
         networkType: NetworkType.L2,
-        blockWaitMsBeforeWarning: ms`25m`,
         bridge: "https://gateway.optimism.io/?chainId=1",
         docs: "https://optimism.io/",
         explorer: "https://optimistic.etherscan.io/",
@@ -72,7 +70,6 @@ export const CHAIN_INFO = {
     },
     [SupportedChainId.OPTIMISTIC_KOVAN]: {
         networkType: NetworkType.L2,
-        blockWaitMsBeforeWarning: ms`25m`,
         bridge: "https://gateway.optimism.io/",
         docs: "https://optimism.io/",
         explorer: "https://kovan-optimistic.etherscan.io/",
@@ -90,7 +87,6 @@ export const CHAIN_INFO = {
     },
     [SupportedChainId.ARBITRUM_ONE]: {
         networkType: NetworkType.L2,
-        blockWaitMsBeforeWarning: ms`10m`,
         bridge: "https://bridge.arbitrum.io/",
         docs: "https://offchainlabs.com/",
         explorer: "https://arbiscan.io/",
@@ -103,7 +99,6 @@ export const CHAIN_INFO = {
     },
     [SupportedChainId.ARBITRUM_RINKEBY]: {
         networkType: NetworkType.L2,
-        blockWaitMsBeforeWarning: ms`10m`,
         bridge: "https://bridge.arbitrum.io/",
         docs: "https://offchainlabs.com/",
         explorer: "https://testnet.arbiscan.io/",
@@ -120,7 +115,6 @@ export const CHAIN_INFO = {
     },
     [SupportedChainId.POLYGON]: {
         networkType: NetworkType.L1,
-        blockWaitMsBeforeWarning: ms`10m`,
         bridge: "https://wallet.polygon.technology/bridge",
         docs: "https://polygon.io/",
         explorer: "https://polygonscan.com/",
@@ -131,7 +125,6 @@ export const CHAIN_INFO = {
     },
     [SupportedChainId.POLYGON_MUMBAI]: {
         networkType: NetworkType.L1,
-        blockWaitMsBeforeWarning: ms`10m`,
         bridge: "https://wallet.polygon.technology/bridge",
         docs: "https://polygon.io/",
         explorer: "https://mumbai.polygonscan.com/",
@@ -146,7 +139,6 @@ export const CHAIN_INFO = {
     },
     [SupportedChainId.BINANCE]: {
         networkType: NetworkType.L1,
-        blockWaitMsBeforeWarning: ms`10m`,
         docs: "https://www.binance.com",
         explorer: "https://www.bscscan.com/",
         infoLink: "https://www.binance.com",
@@ -160,7 +152,6 @@ export const CHAIN_INFO = {
     },
     [SupportedChainId.BINANCE_TESTNET]: {
         networkType: NetworkType.L1,
-        blockWaitMsBeforeWarning: ms`10m`,
         docs: "https://testnet.binance.org/en/",
         explorer: "https://testnet.bscscan.com/",
         infoLink: "https://testnet.binance.org/en/",

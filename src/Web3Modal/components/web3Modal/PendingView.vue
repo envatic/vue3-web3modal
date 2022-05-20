@@ -26,7 +26,7 @@
 <script>
 	import styled from "vue3-styled-components";
 	import Provider from "./Provider";
-	import {darken} from "polished";
+	import darken from "polished/lib/color/darken";
 	import Loader from "@/Web3Modal/components/Loader";
 
 	const PendingSection = styled.div`

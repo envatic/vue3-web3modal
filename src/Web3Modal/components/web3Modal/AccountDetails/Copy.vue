@@ -19,7 +19,7 @@
 	import {
 		CheckCircleIcon as CheckCircle,
 		CopyIcon as Copy,
-	} from "vue3-feather";
+	} from "@/Web3Modal/assets/icons";
 	import copy from "copy-to-clipboard";
 	const CopyIcon = styled(LinkStyledButton)`
 		color: ${({ theme }) => theme.text3};

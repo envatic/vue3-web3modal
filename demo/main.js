@@ -4,7 +4,7 @@ import { createWeb3 } from '@/createWeb3';
 const infuraKey = process.env.VUE_APP_INFURA_KEY;
 import './assets/tailwind.css'
 import { theme } from './theme';
-import {providerOptions}  from './providers'
+import { providerOptions }  from './providers'
 const web3vue = createWeb3({
     infuraKey,
     providerOptions,

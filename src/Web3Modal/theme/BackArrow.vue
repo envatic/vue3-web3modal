@@ -5,7 +5,7 @@
 </template>
 <script>
 	import BackArrowLink from "./theme";
-	import { ArrowLeftIcon } from "vue3-feather";
+	import { ArrowLeftIcon } from "@/Web3Modal/assets/icons";
 	export default {
 		components: {
 			BackArrowLink,

@@ -9,7 +9,7 @@
 	</ButtonPrimary>
 </template>
 <script>
-	import { ChevronDownIcon as ChevronDown } from "vue3-feather";
+	import { ChevronDownIcon as ChevronDown } from "@/Web3Modal/assets/icons";
 	import { ButtonPrimary } from "../Button";
 	export default {
 		components: {

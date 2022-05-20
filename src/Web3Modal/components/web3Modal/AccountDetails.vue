@@ -134,7 +134,7 @@
 	import {
 		ExternalLinkIcon as LinkIcon,
 		XIcon as Close,
-	} from "vue3-feather";
+	} from "@/Web3Modal/assets/icons";
 	import ExternalLink from "@/Web3Modal/theme/ExternalLink";
 	import { LinkStyledButton } from "@/Web3Modal/theme";
 	import TextWrapper from "@/Web3Modal/theme/TextWrapper";

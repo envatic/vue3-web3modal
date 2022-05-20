@@ -1,5 +1,5 @@
-import {BigNumber} from "@ethersproject/bignumber";
-import {hexStripZeros} from "@ethersproject/bytes";
+//import {BigNumber} from "@ethersproject/bignumber";
+//import {hexStripZeros} from "@ethersproject/bytes";
 import {CHAIN_INFO} from "@/Web3Modal/constants/chainInfo";
 import {useInfuraUrls} from "@/Web3Modal/constants/infura";
 function getRpcUrls(chainId, INFURA_KEY) {
@@ -12,17 +12,17 @@ function getRpcUrls(chainId, INFURA_KEY) {
 
 // provider.request returns Promise<any>, but wallet_switchEthereumChain must return null or throw
 // see https://github.com/rekmarks/EIPs/blob/3326-create/EIPS/eip-3326.md for more info on wallet_switchEthereumChain
-export async function switchToNetwork({provider, chainId, INFURA_KEY}) {
+export async function switchToNetwork({ provider, chainId, chainIdHex, INFURA_KEY}) {
 	if (!provider) {
 		return;
 	}
-	const formattedChainId = hexStripZeros(
+	/*const chainIdHex = hexStripZeros(
 		BigNumber.from(chainId).toHexString(),
-	);
+	);*/
 	try {
 		await provider.request({
 			method: "wallet_switchEthereumChain",
-			params: [{chainId: formattedChainId}],
+			params: [{chainId: chainIdHex}],
 		});
 	} catch (error) {
 		const unrecognized = error.message.includes("Unrecognized chain");
@@ -33,7 +33,7 @@ export async function switchToNetwork({provider, chainId, INFURA_KEY}) {
 				method: "wallet_addEthereumChain",
 				params: [
 					{
-						chainId: formattedChainId,
+						chainId: chainIdHex,
 						chainName: info.label,
                         rpcUrls: getRpcUrls(chainId, INFURA_KEY),
 						nativeCurrency: info.nativeCurrency,
@@ -47,7 +47,7 @@ export async function switchToNetwork({provider, chainId, INFURA_KEY}) {
 			try {
 				await provider.request({
 					method: "wallet_switchEthereumChain",
-					params: [{chainId: formattedChainId}],
+					params: [{chainId: chainIdHex}],
 				});
 			} catch (error) {
 				console.debug(

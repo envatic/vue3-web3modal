@@ -4,7 +4,7 @@
 </template>
 <script>
 import styled from "vue3-styled-components";
-import { darken } from "polished";
+import darken from "polished/lib/color/darken";
 import { ButtonPrimary, Base } from "../Button";
 const ButtonErrorStyle = styled(Base)`
   background-color: ${({ theme }) => theme.red1};

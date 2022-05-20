@@ -12,7 +12,7 @@
 	</ButtonGray>
 </template>
 <script>
-	import { ChevronDownIcon as ChevronDown } from "vue3-feather";
+	import { ChevronDownIcon as ChevronDown } from "@/Web3Modal/assets/icons";
 	import { ButtonGray } from "../Button";
 	export default {
 		components: {
