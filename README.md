@@ -9,7 +9,9 @@
 View [Demo](https://vue3-web3modal.netlify.app/)
 The demo works, Connect your wallet to see it in action.
 
-> See demo folder in repo to see how its setup!
+# Quick Start;
+
+> See demo folder in repository to see how its setup!
 
 # Copied from uniswap;
 
@@ -125,7 +127,6 @@ export default {
 		const { 
             web3, //ref
             account, //ref
-            accountEns, //asyncComputed
             etherBalance, //asyncComputed
             chainId,//ref
             providerInfo,//computed
@@ -181,7 +182,6 @@ In One of your Components eg App.vue
         const { 
             web3, //ref
             account, //ref
-            accountEns, //asyncComputed
             etherBalance, //asyncComputed
             ...
          } = useActiveWeb3Vue();
@@ -273,14 +273,16 @@ const i18n = createI18n({
     fallbackLocale: 'en', // set fallback locale
     translations, // set locale messages
 })
+```
+> Place i18n before  web3vue
 
+```js
 const app = createApp(APP);
-app.use(i18n); // translations
+app.use(i18n); // translations come before
 app.use(web3vue); // initialize web3vue
 
-
-
 ```
+
 # Usage
 once the modal is enabled and permission granted by user
 you can access the following variable anywhere in your app
@@ -293,7 +295,6 @@ setup(){
     const {
         web3, //ref
         account, //ref
-        accountEns, //asyncComputed
         etherBalance, //asyncComputed
         chainId,//ref
         providerInfo,//computed
@@ -301,7 +302,8 @@ setup(){
         active,//ref
         error, //ref
     } = useActiveWeb3Vue();
-    //web3 is initialized;
+
+    //example use of web3 initialized;
     const contract = new web3.value.eth.Contract(your_toke_ABI, token_address);
     const balance = await contract.methods.balanceOf(account.value);
     console.log(web3.utils.fromWei(balance.toString()));
@@ -346,24 +348,12 @@ setup(){
     //0x7f0374480b9Ca09144F6cBd16774FDf1da1ae528
 }
 ```
-#  accountEns ;
-`accountEns` is a null  `ref` before initialization
-after user connected, is the users ensname if user registed it;
-is `computed ref` and will be recomputed if user changes network or address
-```js
-import { useActiveWeb3Vue } from "vue3-web3modal";
-/// in the component setup
-setup(){
-    const {  accountEns   } = useActiveWeb3Vue();
-    console.log(accountEns.value);
-    //zobit.eth
-}
-```
 
 # etherBalance;
-`etherBalance` is a `null` computed  `ref` before initialization;
+`etherBalance` is a `null` computed before initialization;
+
 After user connected, is the users etherbalance in ETH;
-Is `computed ref` and will be recomputed if user changes network or address or spends or receives eth;
+Is `computed` and will be recomputed if user changes network or address or spends or receives eth;
 ```js
 import { useActiveWeb3Vue } from "vue3-web3modal";
 /// in the component setup
@@ -431,8 +421,8 @@ setup(){
 
 `active` is a `boolean` ref, determines if user the user has connected his wallet and everything is set;
 
-`error` is a `ref` containing and errors accounted,
-you can use it to determine everythis is going ok
+`error` is a `ref` containing errors encountered,
+you can use it to determine if everythiing is going ok
 ```js
 import { useActiveWeb3Vue } from "vue3-web3modal";
 import {watch} from vue;
@@ -456,7 +446,6 @@ setup(){
 
 # Transactions;
 Some providers dont support events, making it tough to confirm transactions.
-
 so to unify transactions confirmation, a method exists to confirm transactions via Infura
 
 ```js
@@ -473,15 +462,17 @@ setup(){
     addTransaction({
         hash,
         onSuccess:(receipt)=>console.log(receipt), // after one confirmation
-        onError:(error)=>console.log(error),
-        summary:'Send 0.0967 ZBT',
+        onError:(error)=>console.log(error), // called on any errors
+        summary:'Send 0.0967 ZBT', A summary Displayed to the user !!
         approval: false, // flag to show tx is approval tx
     })
-    // or listen to tx events
+
+    // yoh can also listen to the tx's events on it hash
     txBus.on(hash, ({receipt, error, hash, summary})=>{
         // error occured if error was set;
         if(error) return showError(error);
         console.log(receipt.hash)
+        showNotification(summary.)
     })
 }
 ```
@@ -489,7 +480,6 @@ setup(){
 
 # events;
 Again Some providers dont support events listening;
-
 You would be wise to use infura;
 
 > Infura doesnt support binance chain 
