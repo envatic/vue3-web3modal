@@ -4,12 +4,12 @@
 
 
 # demo (with darkmode)
-<a href="https://vue3-web3modal.netlify.app/" rel="noopener" target="_blank">
+<a href="https://master--vue3-web3modal.netlify.app/" rel="noopener" target="_blank">
 <img width="350" src="./modal.png"></a>
 
 
 
-The <a href="https://vue3-web3modal.netlify.app/" rel="noopener" target="_blank">Demo</a> works, Connect your wallet to see it in action.
+The <a href="https://master--vue3-web3modal.netlify.app/" rel="noopener" target="_blank">Demo</a> works, Connect your wallet to see it in action.
 
 # Quick Start;
 
