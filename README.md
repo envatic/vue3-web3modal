@@ -6,8 +6,9 @@
 # demo
 <img width="350" src="./modal.png">
 
-View [Demo](https://vue3-web3modal.netlify.app/)
-The demo works, Connect your wallet to see it in action.
+
+
+The <a href="https://vue3-web3modal.netlify.app/" rel="noopener" target="_blank">Demo</a> works, Connect your wallet to see it in action.
 
 # Quick Start;
 
@@ -15,7 +16,7 @@ The demo works, Connect your wallet to see it in action.
 
 # Copied from uniswap;
 
-This Modal is copied from this [uniswap interface](https://github.com/Uniswap/interface); as seen in the [Uniswap exchange.](https://app.uniswap.org/.)
+This Modal is copied from this <a href="https://github.com/Uniswap/interface" rel="noopener" target="_blank">uniswap interface</a>,  as seen in the [Uniswap exchange.](https://app.uniswap.org/.)
 
 # Installation
 
@@ -26,9 +27,7 @@ yarn add vue3-web3modal
 ```
 
 # setup
-
-It uses [web3modal](https://github.com/Web3Modal/web3modal) beneath;
-so you first have to install your desired providers;
+<a href="https://github.com/Web3Modal/web3modal" rel="noopener" target="_blank">web3modal</a> So you first have to install your desired providers;
 ```bash
 //install desired providers
 
