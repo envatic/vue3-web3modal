@@ -10,12 +10,11 @@ export function createWeb3({
     theme = reactive({}),
     global= false
 }){
-    console.log(providerOptions);
+    
     const plugin = {
         install(app){
             const mergedTheme = Object.assign(defaultTheme, toRefs(theme))
             mergedTheme.colors = mergedTheme;
-            console.log(mergedTheme, theme)
             app.provide('theme', defaultTheme);
             provideOptions(app, providerOptions);
             provideInfuraKey(app, infuraKey);

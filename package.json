@@ -1,7 +1,7 @@
 {
 	"name": "vue3-web3modal",
-	"version": "0.1.0",
-	"private": true,
+	"version": "0.1.2",
+	"private": false,
 	"scripts": {
 		"serve": "VUE_CLI_SERVICE_CONFIG_PATH=$PWD/vue.demo.js  vue-cli-service serve --mode=development  demo/main.js",
 		"build": "vue-cli-service build --mode=development --target lib src/index.js",
@@ -10,7 +10,6 @@
 	},
 	"main": "./dist/vue3-web3modal.common.js",
 	"unpkg": "./dist/vue3-web3modal.umd.min.js",
-
 	"dependencies": {
 		"@burner-wallet/burner-connect-provider": "^0.1.1",
 		"@coinbase/wallet-sdk": "^3.1.0",
@@ -43,6 +42,7 @@
 		"vue3-jazzicon": "^0.1.2",
 		"vue3-spring": "^0.0.2",
 		"vue3-styled-components": "^1.2.1",
+		"vue3-web3modal": "github:envatic/vue3-web3modal",
 		"web3": "^1.7.3"
 	},
 	"devDependencies": {

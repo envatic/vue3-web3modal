@@ -70,7 +70,6 @@ export const checkedTransaction = ({ hash, blockNumber }) => {
 };
 
 export const finalizeTransaction = ({ hash, receipt }) => {
-    console.log(`Finalizing  tx ${hash}`);
     const tx = transactions.value[chain_id.value]?.[hash];
     if (!tx) return;
     tx.receipt = receipt;
@@ -84,7 +83,6 @@ export const finalizeTransaction = ({ hash, receipt }) => {
 };
 
 export const failTransaction = ({ hash, error }) => {
-    console.log(`Failing  tx ${hash}`);
     const tx = transactions.value[chain_id.value]?.[hash];
     if (!tx) return;
     if (tx.onError && tx.onError instanceof Function) tx.onError(error);
@@ -128,7 +126,6 @@ function shouldCheck(tx) {
     if (tx.receipt) return false;
     if (!tx.lastCheckedBlockNumber) return true;
     const blocksSinceCheck = lastBlockNumber.value - tx.lastCheckedBlockNumber;
-    console.log(`blocksSinceCheck ${blocksSinceCheck}`);
     //if (blocksSinceCheck < 1) return false; 
     const waited = (new Date().getTime() - tx.checked) / 1000 / 60;
     if (waited > 5) return true;
@@ -145,7 +142,6 @@ function shouldCheck(tx) {
 }
 
 export const checkTransaction = (hash) => {
-    console.log(`checking tx: ${hash}`)
     const { infuraWss: infura } = useInfura();
     let loadingIndex = loading.push(hash);
     infura.value.eth

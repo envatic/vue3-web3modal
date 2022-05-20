@@ -95,7 +95,6 @@
 	} from "@envatic/web3modal-ts";
 	import { computed } from "vue";
 	import { useProviderOptions } from "@/Web3Modal/hooks/useProvider";
-	import { useLocalStorage } from "@vueuse/core";
 	const CloseIcon = styled.div`
 		position: absolute;
 		right: 1rem;
@@ -178,7 +177,6 @@
 		setup() {
 			const { isOpen: show, close: closeWeb3Modal } = useWeb3ModalToggle();
 			const providerOptions = useProviderOptions();
-			const deactivated = useLocalStorage("deactivated", false);
 			blockUpdater();
 			TxUpdater();
 			const options = reactive({
@@ -228,8 +226,7 @@
 				setAccount,
 				setAccounts,
 				options,
-				useActiveWeb3Vue,
-				deactivated,
+				useActiveWeb3Vue
 			};
 		},
 		data() {
@@ -268,7 +265,6 @@
 			providers() {
 				return this.availableProviders.reduce((memo, provider) => {
 					const providerInfo = getProviderInfoByName(provider.name);
-					console.log(this.providerInfo.name, providerInfo.name);
 					memo[provider.name] = {
 						...providerInfo,
 						...provider,
@@ -293,7 +289,6 @@
 		},
 		watch: {
 			show(nowShowing, wasShown) {
-				console.log("watch --->  show");
 				if (nowShowing && !wasShown) {
 					this.showing = nowShowing;
 					this.setError(null);
@@ -312,7 +307,6 @@
 			this.web3walletConnector = new Web3WalletConnector(this.options);
 			this.providerController = this.web3walletConnector.providerController;
 			this.providerController.on(CONNECT_EVENT, (provider) => {
-				this.deactivated = false;
 				this.onConnect(provider);
 			});
 			this.providerController.on(ERROR_EVENT, (error) => this.onError(error));
@@ -332,7 +326,6 @@
 				return this.providerController.clearCachedProvider();
 			},
 			async selectProvider(provider) {
-                console.log('selectProvider(provider)')
 				// user selected a provider
 				if (provider.active && this.active) return false;
 				this.pendingWallet = provider;
@@ -342,7 +335,6 @@
 
 			async retryConnection() {
 				// user selected a provider
-                console.log('retryConnection()')
 				this.setError(null);
 				return this.pendingWallet.onClick();
 			},
@@ -365,12 +357,10 @@
 
 				if (
 					// only one provider
-                    !this.deactivated &&
 					this.providers &&
 					this.providers.length === 1 &&
 					this.providers[0].name
 				) {
-                    console.log('this.providers[0].onClick()');
 					await this.providers[0].onClick();
 					return;
 				}
@@ -420,20 +410,18 @@
 				const ethereum = await detectEthereumProvider();
 				if (!ethereum) return false;
 				if (
-                    !this.deactivated,
 					this.isMobile &&
 					this.providers &&
 					this.providers.length === 1 &&
 					this.providers[0].name
 				) {
-                    console.log('_onConnect');
 					await this.providers[0].onClick();
 					return;
 				}
 				const web3 = this.initWeb3(ethereum);
 				const provider = await this.providerIsAuthorized(web3);
 				if (provider && this.cachedProvider == "injected") {
-					if (!this.deactivated) return this.connectWeb3(); // automatically login
+					return this.connectWeb3(); // automatically login
 				}
 				this.setWeb3(web3);
 				await this.subscribeProvider(ethereum);
@@ -449,16 +437,13 @@
 					return;
 				}
 				provider.on("accountsChanged", (accounts) => {
-                    console.log(`accountsChanged ${accounts[0]}` ?? null);
 					if ((accounts[0] ?? null) == null) {
-						this.deactivated = true;
+                        this.setAccount(null);
 						return this.deactivate();
 					}
 					this.setAccount(accounts[0] ?? null);
-					
 				});
 				provider.on("chainChanged", async (chainId) => {
-                    console.log(`chainId ${chainId}`);
 					if (chainId == null) return;
 					let chainsNo = this.web3.utils.hexToNumber(chainId) ?? null;
 					this.setChainId(chainsNo);
@@ -469,8 +454,7 @@
 			},
 
 			async providerIsAuthorized(web3) {
-                console.log('providerIsAuthorized');
-				if (!web3 || this.deactivated) return undefined;
+				if (!web3 ) return undefined;
 				if (this.requesting) return false;
 				this.requesting = true;
 				try {
