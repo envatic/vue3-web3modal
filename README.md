@@ -3,7 +3,7 @@
 [![NPM version](https://img.shields.io/npm/v/vue3-web3modal.svg?style=flat)](https://npmjs.com/package/vue3-web3modal) [![NPM downloads](https://img.shields.io/npm/dm/vue3-web3modal.svg?style=flat)](https://npmjs.com/package/vue3-web3modal)[![Netlify Status](https://api.netlify.com/api/v1/badges/4f9c467a-d067-4c20-9e37-851f65ea36a1/deploy-status)](https://app.netlify.com/sites/vue3-web3modal/deploys)
 
 
-# demo
+# demo (with darkmode)
 <img width="350" src="./modal.png">
 
 
@@ -509,7 +509,7 @@ Adjust the colours below  to suit your needs.
 ```js
 // in ./theme.js
 import { computed, reactive } from "vue";
-import { darkMode } from "../src/index";
+import { darkMode } from "vue3-web3modal";
 export const theme = reactive({
     colors: null,
     // base
@@ -578,6 +578,18 @@ app.use(i18n);
 app.use(web3vue);
 
 ```
+#Dark Mode
+
+```vue
+<script setup>
+    import {  toggleDark, isDark } from "vue3-web3modal";
+    console.log(isDark);
+</script>
+<template>
+    <button @click="toggleDark()"> DarkMode </button>
+</template>
+```
+
 # Env Variables
 if using vue-cli its recommeded to add your api keys to your `.env ` file;
 in vue-cli  the `VUE_APP_` prefix ie required 
