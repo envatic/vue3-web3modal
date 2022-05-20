@@ -4,7 +4,8 @@
 
 
 # demo (with darkmode)
-<img width="350" src="./modal.png">
+<a href="https://vue3-web3modal.netlify.app/" rel="noopener" target="_blank">
+<img width="350" src="./modal.png"></a>
 
 
 
