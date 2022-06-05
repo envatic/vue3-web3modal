@@ -1,6 +1,6 @@
 {
 	"name": "vue3-web3modal",
-	"version": "0.1.3",
+	"version": "0.1.4",
 	"private": false,
 	"scripts": {
 		"serve": "VUE_CLI_SERVICE_CONFIG_PATH=$PWD/vue.demo.js  vue-cli-service serve --mode=development  demo/main.js",
