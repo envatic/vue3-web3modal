@@ -1,7 +1,7 @@
-import flatten from 'vue3-styled-components/src/utils/flatten'
-import styleSheet from 'vue3-styled-components/src/models/StyleSheet'
+import flatten from 'vue3-styled-component/src/utils/flatten'
+import styleSheet from 'vue3-styled-component/src/models/StyleSheet'
 import stylis from 'stylis'
-import css from 'vue3-styled-components/src/constructors/css'
+import css from 'vue3-styled-component/src/constructors/css'
 class GlobalStyle {
     constructor(rules, theme) {
         this.rules = rules

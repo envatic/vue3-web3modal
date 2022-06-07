@@ -18,7 +18,7 @@
 	</ContentWrapper>
 </template>
 <script>
-	import styled from "vue3-styled-components";
+	import styled from "vue3-styled-component";
 	import Provider from "./Provider";
 	import { ExternalLink, ContentWrapper } from "@/Web3Modal/theme";
 

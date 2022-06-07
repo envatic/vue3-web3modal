@@ -22,7 +22,6 @@
 			<AccountDetails
 				v-else-if="isValidNetwork && connected && active && walletView === 'account'"
 				:connector="provider"
-				:ens-name="ENSName"
 				:address="account"
 				:chain-id="chainId"
 			></AccountDetails>
@@ -58,7 +57,7 @@
 	import { parseSendReturn } from "@/Web3Modal/utils/providerOptions";
 	import _debounce from "lodash.debounce";
 	import _find from "lodash.find";
-	import styled from "vue3-styled-components";
+	import styled from "vue3-styled-component";
 	import { XIcon as Close } from "@/Web3Modal/assets/icons";
 	import { ContentWrapper } from "@/Web3Modal/theme";
 	import AccountDetails from "./AccountDetails";
@@ -66,7 +65,7 @@
 	import ModalOverlay from "@/Web3Modal/components/Modal.vue";
 	import PendingView from "./PendingView";
 	import Web3 from "web3";
-	import { ref, reactive } from "vue";
+	import { ref } from "vue";
 	import { blockUpdater } from "@/Web3Modal/hooks/useBlockNumber";
 	import { Updater as TxUpdater } from "@/Web3Modal/hooks/useTxs";
 	import {
@@ -177,14 +176,18 @@
 		setup() {
 			const { isOpen: show, close: closeWeb3Modal } = useWeb3ModalToggle();
 			const providerOptions = useProviderOptions();
+            //console.log(`providerOptions`,providerOptions);
 			blockUpdater();
 			TxUpdater();
-			const options = reactive({
+			const options = {
 				cacheProvider: false,
 				disableInjectedProvider: false,
 				providerOptions,
 				network: "",
-			});
+			};
+            console.log(options,providerOptions);
+
+            
 			setBalance();
 			const {
 				etherBalance,

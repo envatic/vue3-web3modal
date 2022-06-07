@@ -5,7 +5,7 @@
 </template>
 <script>
 
-import styled from 'vue3-styled-components'
+import styled from 'vue3-styled-component'
 import lighten from 'polished/lib/color/lighten'
 import {ButtonPrimary, Base} from "../Button";
 const ButtonConfirmedStyle = styled(Base)`

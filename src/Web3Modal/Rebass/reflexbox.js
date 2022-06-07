@@ -1,4 +1,4 @@
-import styled from "vue3-styled-components";
+import styled from "vue3-styled-component";
 import { space, layout, typography, color, flexbox } from "../theme/styled";
 import css, { get } from "@styled-system/css";
 import props from "./props";

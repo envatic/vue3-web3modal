@@ -1,4 +1,4 @@
-import styled from 'vue3-styled-components'
+import styled from 'vue3-styled-component'
 
 const Column = styled.div`
   display: flex;

@@ -27,7 +27,7 @@
 </template>
 
 <script>
-	import styled from "vue3-styled-components";
+	import styled from "vue3-styled-component";
 	import { CheckCircleIcon, TriangleIcon } from "@/Web3Modal/assets/icons";
 	import ExternalLink from "@/Web3Modal/theme/ExternalLink";
 	import Loader from "@/Web3Modal/components/Loader";

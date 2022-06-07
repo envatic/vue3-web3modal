@@ -4,6 +4,9 @@
 <script>
 import { Box } from './reflexbox'
 	export default {
+        props:{
+            css:Object
+        },
 		components:{
 			Box
 		},

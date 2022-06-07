@@ -3,7 +3,7 @@
   <ButtonPrimary v-else />
 </template>
 <script>
-import styled from "vue3-styled-components";
+import styled from "vue3-styled-component";
 import darken from "polished/lib/color/darken";
 import { ButtonPrimary, Base } from "../Button";
 const ButtonErrorStyle = styled(Base)`

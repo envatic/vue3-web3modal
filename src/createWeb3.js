@@ -16,7 +16,7 @@ export function createWeb3({
             const mergedTheme = Object.assign(defaultTheme, toRefs(theme))
             mergedTheme.colors = mergedTheme;
             app.provide('theme', defaultTheme);
-            provideOptions(app, providerOptions);
+            provideOptions(app, providerOptions); 
             provideInfuraKey(app, infuraKey);
             if(global){
                 app.component('Web3Manager', Web3Manager);

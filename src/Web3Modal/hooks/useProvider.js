@@ -3,6 +3,7 @@ const ProviderSymbol = Symbol();
 const InfuraSymbol = Symbol();
 
 export function provideOptions(app, options) {
+    console.log(options)
     app.provide(ProviderSymbol, options);
 }
 
@@ -21,7 +22,7 @@ export function provideInfuraKey(app, key) {
 export function useInfuraKey() {
     const InfuraKey = inject(InfuraSymbol);
     if (!InfuraKey) {
-        throw 'error, no providerOptions provided'
+        throw 'error, no InfuraKey provided'
     }
     return InfuraKey
 }

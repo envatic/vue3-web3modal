@@ -1,4 +1,4 @@
-import styled from "vue3-styled-components";
+import styled from "vue3-styled-component";
 import {Box} from "@/Web3Modal/Rebass/reflexbox";
 
 const Row = styled(Box, {

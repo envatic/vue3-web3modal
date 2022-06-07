@@ -2,7 +2,7 @@
 <script >
 	import darken from "polished/lib/color/darken";
 	import { ActivityIcon as Activity } from "@/Web3Modal/assets/icons";
-	import styled, { css } from "vue3-styled-components";
+	import styled, { css } from "vue3-styled-component";
 	import { useActiveWeb3Vue } from "../hooks";
 	import { useWeb3ModalToggle } from "../hooks/useModalsToggle";
 	import {
@@ -112,6 +112,7 @@
 		font-size: 1rem;
 		width: fit-content;
 		font-weight: 500;
+        border:none !important
 	`;
 
 	const NetworkIcon = styled(Activity)`

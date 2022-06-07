@@ -6,7 +6,7 @@
 	import { CHAIN_IDS_TO_NAMES, SupportedChainId } from "../constants/chains";
 	import { useActiveWeb3Vue } from "@/Web3Modal/hooks";
 	import { ChevronDownIcon as ChevronDown } from "@/Web3Modal/assets/icons";
-	import styled from "vue3-styled-components";
+	import styled from "vue3-styled-component";
 	import { MEDIA_WIDTHS } from "@/Web3Modal/theme";
 	import { switchToNetwork } from "@/Web3Modal/utils/switchToNetwork";
 	import { computed, onUpdated, ref, watch } from "vue";

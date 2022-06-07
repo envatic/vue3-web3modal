@@ -1,6 +1,6 @@
 
 import { inject, computed, reactive } from "vue";
-import { css } from "vue3-styled-components";
+import { css } from "vue3-styled-component";
 export * from "@/Web3Modal/theme/components";
 export { default as ExternalLink } from "@/Web3Modal/theme/ExternalLink";
 import { useDark, useToggle } from "@vueuse/core";

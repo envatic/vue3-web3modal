@@ -24,7 +24,7 @@
 	</PendingSection>
 </template>
 <script>
-	import styled from "vue3-styled-components";
+	import styled from "vue3-styled-component";
 	import Provider from "./Provider";
 	import darken from "polished/lib/color/darken";
 	import Loader from "@/Web3Modal/components/Loader";

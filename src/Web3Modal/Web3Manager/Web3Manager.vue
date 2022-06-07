@@ -1,5 +1,5 @@
 <script>
-	import styled from "vue3-styled-components";
+	import styled from "vue3-styled-component";
 	import { computed } from "vue";
 	import { useWindowScroll } from "@vueuse/core";
 	import { CHAIN_INFO } from "../constants/chainInfo";
@@ -10,6 +10,8 @@
 	import WalletModal from "../components/web3Modal/Web3Modal";
 	import NetworkSelector from "./NetworkSelector.vue";
 	import { useEther } from "../constants";
+    import {isOpen} from "../hooks/useModalsToggle"
+import { useInfuraKey } from '../hooks/useProvider';
 	const HeaderFrame = styled("div", { showBackground: Boolean })`
 		/* display: grid; */
 		grid-template-columns: 120px 1fr 120px;
@@ -112,6 +114,7 @@
 			const { account, chainId, active, isValidNetwork, etherBalance } =
 				useActiveWeb3Vue();
 			const ether = useEther(chainId);
+            const infurakey = useInfuraKey()
 			const { y: scrollY } = useWindowScroll();
 			const nativeCurrencySymbol = computed(() => {
 				const {
@@ -130,6 +133,8 @@
 				hasDropDown,
 				active,
 				isValidNetwork,
+                isOpen,
+                infurakey
 			};
 		},
 	};

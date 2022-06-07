@@ -6,7 +6,7 @@
 	import { SupportedChainId } from "../constants/chains";
 	import useActiveWeb3Vue from "../hooks";
 	import { AlertOctagonIcon as AlertOctagon } from "@/Web3Modal/assets/icons";
-	import styled from "vue3-styled-components";
+	import styled from "vue3-styled-component";
 	import { ExternalLink, MEDIA_WIDTHS } from "theme";
 
 	const BodyRow = styled.div`

@@ -1,4 +1,4 @@
-import styled, {keyframes} from "vue3-styled-components";
+import styled, {keyframes} from "vue3-styled-component";
 import darken from "polished/lib/color/darken";
 import {
 	XIcon as X,

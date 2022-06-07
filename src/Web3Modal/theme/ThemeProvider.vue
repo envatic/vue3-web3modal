@@ -1,6 +1,6 @@
 <script>
 	import { theme } from "@/Web3Modal/theme";
-	import { ThemeProvider } from "vue3-styled-components";
+	import { ThemeProvider } from "vue3-styled-component";
 	export default {
 		components: {
 			ThemeProvider,

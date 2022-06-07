@@ -37,15 +37,14 @@
 </template>
 
 <script>
-	import styled, { css } from "vue3-styled-components";
+	import styled, { css } from "vue3-styled-component";
 	import { isMobile } from "mobile-device-detect";
 	import transparentize from "polished/lib/color/transparentize";
 	import { spring } from "vue3-spring";
 	import { ref, computed, inject } from "vue";
 	import { useSwipe } from "@vueuse/core";
 	const StyledDialogOverlay = styled.div`
-		 {
-			background: rgba(0, 0, 0, 0.33);
+		 background: rgba(0, 0, 0, 0.33);
 			opacity: 1;
 			position: fixed;
 			top: 0;
@@ -61,7 +60,6 @@
 			align-items: center;
 			justify-content: center;
 			background-color: ${({ theme }) => theme.modalBG};
-		}
 	`;
 	const DialogContent = styled("div", {
 		minHeight: Number,
@@ -69,7 +67,6 @@
 		mobile: Boolean,
 		isOpen: Boolean,
 	})`
-		 {
 			overflow-y: ${({ mobile }) => (mobile ? "scroll" : "hidden")};
 			background: #fff;
 			outline: none;
@@ -105,7 +102,7 @@
 						border-bottom-right-radius: 0;
 					`
 				}`}
-		}
+		
 	`;
 
 	export default {

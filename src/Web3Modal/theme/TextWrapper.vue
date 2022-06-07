@@ -4,7 +4,7 @@
 	</TxtDiv>
 </template>
 <script>
-	import styled, { css } from "vue3-styled-components";
+	import styled, { css } from "vue3-styled-component";
 	const TxtDiv = styled("div", {
 		istyles: Object,
 	})`

@@ -126,7 +126,7 @@
 <script>
 	// mixins
 
-	import styled from "vue3-styled-components";
+	import styled from "vue3-styled-component";
 	import { AutoRow } from "@/Web3Modal/components/Row";
 	import Copy from "./AccountDetails/Copy";
 	import Transaction from "./AccountDetails/TxDetail.vue";

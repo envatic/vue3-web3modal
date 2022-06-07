@@ -1,7 +1,7 @@
 <script >
 	import Jazzicon from "vue3-jazzicon/src/components";
 	import { useActiveWeb3Vue } from "../hooks";
-	import styled from "vue3-styled-components";
+	import styled from "vue3-styled-component";
 
 	const StyledIdenticon = styled.div`
 		height: 1rem;

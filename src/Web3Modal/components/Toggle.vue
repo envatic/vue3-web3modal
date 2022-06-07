@@ -5,7 +5,7 @@
 	</StyledToggle>
 </template>
 <script>
-import styled from 'vue3-styled-components'
+import styled from 'vue3-styled-component'
 const ToggleElement = styled.span`
   padding: 0.25rem 0.5rem;
   border-radius: 14px;

@@ -1,5 +1,5 @@
 <script>
-	import styled from "vue3-styled-components";
+	import styled from "vue3-styled-component";
 	import { useActiveWeb3Vue } from "@/Web3Modal/hooks";
 	import { computed } from "vue";
 	const InfoCard = styled("button", { active: Boolean })`

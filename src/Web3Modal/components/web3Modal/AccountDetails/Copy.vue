@@ -14,7 +14,7 @@
 	</CopyIcon>
 </template>
 <script>
-	import styled from "vue3-styled-components";
+	import styled from "vue3-styled-component";
 	import { LinkStyledButton } from "@/Web3Modal/theme";
 	import {
 		CheckCircleIcon as CheckCircle,

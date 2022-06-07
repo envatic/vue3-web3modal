@@ -15,7 +15,7 @@
 	</StyledSVG>
 </template> 
 <script>
-	import styled, { keyframes } from "vue3-styled-components";
+	import styled, { keyframes } from "vue3-styled-component";
 	const rotate = keyframes`
 	        	  from {
 	        		transform: rotate(0deg);

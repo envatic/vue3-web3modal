@@ -28,7 +28,7 @@ module.exports = defineConfig({
               http: require.resolve("stream-http"),
               stream: require.resolve("stream-browserify"),
               crypto: require.resolve("crypto-browserify"),
-              fs: require.resolve("browserify-fs"),
+              /*fs: require.resolve("browserify-fs"),*/
               path: require.resolve("path-browserify"),
               url: require.resolve("url"),
               buffer: require.resolve("buffer")
